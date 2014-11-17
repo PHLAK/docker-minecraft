@@ -9,6 +9,10 @@ Docker container for Minecraft server.
     docker run -d -p 25565:25565 -e OP=player_name -v /srv/minecraft --name Minecraft phlak/minecraft
 
 
+### Updating your server
+
+    docker exec Minecraft update.sh <server_jar_url>
+
 -----
 
 **Copyright (c) 2014 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
