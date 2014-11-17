@@ -5,7 +5,7 @@ MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 RUN apt-get update && apt-get -y upgrade
 
 ## Install Minecraft dependencies
-RUN apt-get -y install openjdk-7-jre-headless
+RUN apt-get -y install openjdk-7-jre-headless wget
 
 ## Create Minecraft directry
 RUN mkdir /srv/minecraft
@@ -15,6 +15,10 @@ ADD https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.
 
 ## Add the EULA file
 ADD files/eula.txt /srv/minecraft/eula.txt
+
+## Add and chmod update script
+ADD files/update.sh /srv/minecraft/update.sh
+RUN chmod +x /srv/minecraft/update.sh
 
 ## Perform apt cleanup
 RUN apt-get -y autoremove && apt-get -y clean && apt-get -y autoclean
@@ -33,4 +37,4 @@ EXPOSE 25565
 WORKDIR /srv/minecraft
 
 ## Default command
-CMD ["./run.sh", "minecraft_server.jar"]
+CMD ["./run.sh"]

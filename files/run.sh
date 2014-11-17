@@ -3,18 +3,28 @@
 ## Get the scripts path
 SCRIPT_PATH="$(dirname $(readlink -f ${0}))"
 
-## Require argument
-if [[ -z "${1}" ]]; then
-    echo "Usage: $(basename ${0}) [MINECRAFT_SERVER_JAR]"; exit 1
-fi
-
-## Set server directory
-SERVER_DIR="$(dirname ${1})"
-
 ## Add OP user
-if [[ ! -e "${SERVER_DIR}/ops.txt.converted" ]]; then
-    echo "${OP}" > ${SERVER_DIR}/ops.txt || exit 1
+if [[ ! -e "${SCRIPT_PATH}/ops.txt.converted" ]]; then
+    if [[ ! -z "${OP}" ]]; then
+        echo "${OP}" > ${SCRIPT_PATH}/ops.txt || exit 1
+    fi
 fi
 
-## Launch Minecraft
-java -Xms256M -Xmx2048M -jar ${1} nogui
+## Apply updated server jar if file exists
+if [[ -e "${SCRIPT_PATH}/minecraft_server.update" ]]; then
+
+    ## Remove old server file
+    rm -fv ${SCRIPT_PATH}/minecraft_server.jar || exit 1
+
+    ## Move the updated server jar into place
+    mv -v ${SCRIPT_PATH}/minecraft_server.update ${SCRIPT_PATH}/minecraft_server.jar || exit 1
+
+fi
+
+## Error if no server file found
+if [[ ! -e "${SCRIPT_PATH}/minecraft_server.jar" ]]; then
+    echo "ERROR: Could not find minecraft_server.jar"; exit 1
+fi
+
+## Launch Minecraft server
+java -Xms256M -Xmx2048M -jar minecraft_server.jar nogui
