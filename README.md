@@ -6,12 +6,20 @@ Docker container for Minecraft server.
 
 ### Running the container
 
-    docker run -d -p 25565:25565 -e OP=player_name -v /srv/minecraft --name Minecraft phlak/minecraft
+    docker run -d -p 25565:25565 -e OP=[PLAYER_NAME] -v /srv/minecraft --name Minecraft phlak/minecraft
+
+**NOTE:** Replace `[PLAYER_NAME]` with the name of the player you wish to receive OP privileges.
 
 
 ### Updating your server
 
-    docker exec Minecraft update.sh <server_jar_url>
+Update to latest version:
+
+    docker exec Minecraft /srv/minecraft/update.sh
+
+Update to a specific version:
+
+    docker exec Minecraft /srv/minecraft/update.sh [SERVER_VERSION]
 
 -----
 
