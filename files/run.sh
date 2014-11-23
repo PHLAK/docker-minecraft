@@ -27,4 +27,4 @@ if [[ ! -e "${SCRIPT_PATH}/minecraft_server.jar" ]]; then
 fi
 
 ## Launch Minecraft server
-java -Xms256M -Xmx2048M -jar minecraft_server.jar nogui
+java -Xms512M -Xmx2048M -jar minecraft_server.jar nogui
