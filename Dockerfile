@@ -10,7 +10,6 @@ RUN apt-get -y install jq openjdk-7-jre-headless wget
 ## Create Minecraft directry
 RUN mkdir /srv/minecraft
 
-
 ## Add and chmod update script
 ADD files/update.sh /srv/minecraft/update.sh
 RUN chmod +x /srv/minecraft/update.sh
