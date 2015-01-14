@@ -1,11 +1,10 @@
 FROM ubuntu:14.04
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
-## Perform apt update / upgrade
-RUN apt-get update && apt-get -y upgrade
-
-## Install Minecraft dependencies
-RUN apt-get -y install jq openjdk-7-jre-headless wget
+## Upgrade packages and install dependencies
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get -y install jq openjdk-7-jre-headless wget \
+    && rm -rf /var/lib/apt/lists/*
 
 ## Create Minecraft directry
 RUN mkdir /srv/minecraft
@@ -19,9 +18,6 @@ RUN /srv/minecraft/update.sh
 
 ## Add the EULA file
 ADD files/eula.txt /srv/minecraft/eula.txt
-
-## Perform apt cleanup
-RUN apt-get -y autoremove && apt-get -y clean && apt-get -y autoclean
 
 ## Add and chmod the run file
 ADD files/run.sh /srv/minecraft/run.sh
