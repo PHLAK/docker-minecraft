@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit
 
 ## Require argument
 if [[ ! -z "${1}" ]]; then
@@ -28,7 +29,7 @@ if [[ "${FILE_EXISTS}" == false ]]; then
 fi
 
 ## Fetch the server file
-wget --verbose -O /srv/minecraft/minecraft_server.update ${SERVER_URL} || exit 1
+wget --verbose -O ${MC_DIR}/minecraft_server.update ${SERVER_URL}
 
 ## Notify user on success
 echo "NOTICE: Updated server file has been downloaded. Restart the container to apply the update to version ${VERSION}"
