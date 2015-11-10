@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM alpine:3.2
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Set Minecraft directory
@@ -9,12 +9,11 @@ ENV MIN_MEM 512M
 ENV MAX_MEM 2048M
 
 # Upgrade packages and install dependencies
-RUN apt-get update && apt-get -y upgrade \
-    && apt-get -y install jq openjdk-7-jre-headless wget \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --update ca-certificates jq openjdk7-jre-base wget \
+    && rm -rf /var/cache/apk/*
 
 # Create Minecraft directry
-RUN mkdir ${MC_DIR}
+RUN mkdir -p ${MC_DIR}
 
 # Add and chmod update script
 COPY files/update.sh ${MC_DIR}/update.sh

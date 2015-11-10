@@ -6,7 +6,7 @@ Docker container for Minecraft server.
 
 ### Running the container
 
-    docker run -d -p 25565:25565 -e OP=[PLAYER_NAME] --restart=always --name minecraft phlak/minecraft
+    docker daemon -p 25565:25565 -e OP=[PLAYER_NAME] --restart=always --name minecraft phlak/minecraft
 
 **NOTE:** Replace `[PLAYER_NAME]` with the name of the player you wish to receive OP privileges.
 
