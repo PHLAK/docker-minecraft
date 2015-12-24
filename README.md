@@ -10,7 +10,7 @@ Docker container for Minecraft server.
 
 First create a data-only container to hold the persistent world and config data:
 
-    docker run --name minecraft-data phlak/minecraft echo "Data-only container for Minecraft server"
+    docker create --name minecraft-data phlak/minecraft echo "Data-only container for Minecraft server"
 
 Then run the Minecraft server:
 
