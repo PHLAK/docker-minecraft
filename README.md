@@ -1,25 +1,42 @@
 docker-minecraft
-===================
+================
 
 Docker container for Minecraft server.
+
+[![](https://badge.imagelayers.io/phlak/docker-minecraft:latest.svg)](https://imagelayers.io/?images=phlak/docker-minecraft:latest 'Get your own badge on imagelayers.io')
 
 
 ### Running the container
 
-    docker daemon -p 25565:25565 -e OP=[PLAYER_NAME] --restart=always --name minecraft phlak/minecraft
+First create a data-only container to hold the persistent world and config data:
 
-**NOTE:** Replace `[PLAYER_NAME]` with the name of the player you wish to receive OP privileges.
+    docker run --name minecraft-data phlak/minecraft echo "Data-only container for Minecraft server"
+
+Then run the Minecraft server:
+
+    docker run -d -e OP=[PLAYER_NAME] -p 25565:25565 --volumes-from minecraft-data --restart=always --name minecraft-server phlak/minecraft
+
+**NOTE:** Replace `[PLAYER_NAME]` with the name of the first player you wish to give OP privileges.
 
 
-### Updating your server
+##### Optional Arguments
 
-Update to latest version:
+`-e MIN_MEM=256M` - The minimum memory for the server to reserve (default: 256M)
 
-    docker exec [CONTAINER_NAME] /srv/minecraft/update.sh
+`-e MAX_MEM=2048M` - The maximum memory for the server to consume (default: 2048M)
 
-Update to a specific version:
+**NOTE:** See the [Minecraft Wiki](http://minecraft.gamepedia.com/Server/Requirements) for more info
+on memory requirements.
 
-    docker exec [CONTAINER_NAME] /srv/minecraft/update.sh [SERVER_VERSION]
+
+##### Edit the server config
+
+Once you have a running container, you can edit the Minecraft server config with:
+
+    docker exec -it minecraft-server vi /srv/minecraft/server.properties
+
+After saving changes, restart your container with `docker restart minecraft-server`
+
 
 -----
 

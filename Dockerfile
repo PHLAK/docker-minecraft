@@ -1,40 +1,38 @@
-FROM alpine:3.2
+FROM alpine:3.3
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
-# Set Minecraft directory
-ENV MC_DIR /srv/minecraft
+# Define Minecraft version
+ENV MC_VERSION 1.8.9
 
 # Memory management
-ENV MIN_MEM 512M
+ENV MIN_MEM 256M
 ENV MAX_MEM 2048M
 
-# Upgrade packages and install dependencies
-RUN apk add --update ca-certificates jq openjdk7-jre-base wget \
-    && rm -rf /var/cache/apk/*
-
-# Create Minecraft directry
-RUN mkdir -p ${MC_DIR}
-
-# Add and chmod update script
-COPY files/update.sh ${MC_DIR}/update.sh
-RUN chmod +x ${MC_DIR}/update.sh
-
-# Download and install the Minecraft server jar
-RUN ${MC_DIR}/update.sh
+# Create Minecraft directories
+ENV MC_BIN_DIR  /opt/minecraft
+ENV MC_RUN_DIR  /srv/minecraft
+RUN mkdir -pv ${MC_BIN_DIR} ${MC_RUN_DIR}
 
 # Add the EULA file
-COPY files/eula.txt ${MC_DIR}/eula.txt
+COPY files/eula.txt ${MC_RUN_DIRq}/eula.txt
 
-# Define docker volumes
-VOLUME ${MC_DIR}
+# Upgrade packages and install dependencies
+RUN apk add --update ca-certificates openjdk7-jre-base wget \
+    && rm -rf /var/cache/apk/*
 
-# Expose ports
+# Download and install the Minecraft server jar
+RUN wget --verbose -O ${MC_BIN_DIR}/minecraft_server.jar \
+    https://s3.amazonaws.com/Minecraft.Download/versions/${MC_VERSION}/minecraft_server.${MC_VERSION}.jar
+
+# Define Docker volumes
+VOLUME ${MC_RUN_DIR}
+
+# Expose port
 EXPOSE 25565
 
 # Set the working dir
-WORKDIR ${MC_DIR}
+WORKDIR ${MC_RUN_DIR}
 
-# Default command
-CMD echo "${OP}" >> ${MC_DIR}/ops.txt; \
-    [ -e "minecraft_server.update" ] && rm -f minecraft_server.jar && mv minecraft_server.update minecraft_server.jar; \
-    java -Xms${MIN_MEM} -Xmx${MAX_MEM} -jar ${MC_DIR}/minecraft_server.jar nogui
+# Default run command
+CMD [ -z "$(grep '${OP}' ${MC_RUN_DIR}/ops.txt )" ] && echo "${OP}" >> ${MC_RUN_DIR}/ops.txt; \
+    java -d64 -Xms${MIN_MEM} -Xmx${MAX_MEM} -jar ${MC_BIN_DIR}/minecraft_server.jar nogui
