@@ -14,12 +14,24 @@ First create a data-only container to hold the persistent world and config data:
 
 Then run the Minecraft server:
 
-    docker run -d -e OP=[PLAYER_NAME] -p 25565:25565 --volumes-from minecraft-data --restart=always --name minecraft-server phlak/minecraft
-
-**NOTE:** Replace `[PLAYER_NAME]` with the name of the first player you wish to give OP privileges.
+    docker run -d -p 25565:25565 --volumes-from minecraft-data --restart=always --name minecraft-server phlak/minecraft
 
 
-##### Optional Arguments
+##### Adding OPs
+
+Once you have a running server container you can add OPs by running:
+
+    docker exec minecraft-server ops [PLAYER_NAMES]
+
+**NOTE:** Replace `[PLAYER_NAMES]` with the name of one or more players you wish to give OP
+privileges separated by a space. If a players name contains spaces wrap it in quotation marks.
+
+Here's an example granting OP to three players with name's `Marty`, `Jennifer` and  `Doc Brown`:
+
+    docker exec minecraft-server ops Marty Jennifer "Doc Brown"
+
+
+##### Optional arguments
 
 `-e MIN_MEM=256M` - The minimum memory for the server to reserve (default: 256M)
 
@@ -29,13 +41,26 @@ Then run the Minecraft server:
 on memory requirements.
 
 
-##### Edit the server config
+##### Editing the server config
 
 Once you have a running container, you can edit the Minecraft server config with:
 
     docker exec -it minecraft-server vi /srv/minecraft/server.properties
 
 After saving changes, restart your container with `docker restart minecraft-server`
+
+
+### Upgrading the server
+
+First pull down the latest image:
+
+    docker pull phlak/minecraft
+
+Remove your running server container:
+
+    docker rm -f minecraft-server
+
+And run a new one with the same command as above.
 
 
 -----
