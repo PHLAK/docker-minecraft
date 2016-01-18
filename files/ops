@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -o errexit
 
-OPS_FILE="${CONFIG_DIR}/ops.txt"
+OPS_FILE="/etc/minecraft/ops.txt"
 
 [ ! -e "${OPS_FILE}" ] && touch ${OPS_FILE}
 
