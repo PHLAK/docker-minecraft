@@ -14,7 +14,7 @@ First create a data-only container to hold the persistent world and config data:
 
 Then run the Minecraft server:
 
-    docker run -d -p 25565:25565 --volumes-from minecraft-data --restart=always --name minecraft-server phlak/minecraft
+    docker run -d -p 25565:25565 --volumes-from minecraft-data --name minecraft-server phlak/minecraft
 
 
 ##### Adding OPs
@@ -31,11 +31,13 @@ Here's an example granting OP to three players with name's `Marty`, `Jennifer` a
     docker exec minecraft-server ops Marty Jennifer "Doc Brown"
 
 
-##### Optional arguments
+##### Optional 'docker run' Arguments
 
-`-e MIN_MEM=256M` - The minimum memory for the server to reserve (default: 256M)
+`-e _JAVA_OPTIONS='-Xms256M -Xmx2048M'` - Set JVM arguments for minimum/maximum memory consumption
+                                          (default: '-Xms256M -Xmx2048M')
 
-`-e MAX_MEM=2048M` - The maximum memory for the server to consume (default: 2048M)
+`--restart always` - Always restart the container regardless of the exit status. See the Docker
+                     [restart policies](https://goo.gl/OI87rA) for additional details.
 
 **NOTE:** See the [Minecraft Wiki](http://minecraft.gamepedia.com/Server/Requirements) for more info
 on memory requirements.
@@ -65,7 +67,7 @@ And run a new one with the same command as above.
 
 -----
 
-**Copyright (c) 2015 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
+**Copyright (c) 2016 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
