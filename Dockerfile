@@ -14,8 +14,8 @@ RUN mkdir -pv /opt/minecraft /etc/minecraft
 COPY files/eula.txt /etc/minecraft/eula.txt
 
 # Add the ops script
-COPY files/ops /bin/ops
-RUN chmod +x /bin/ops
+COPY files/ops /usr/local/bin/ops
+RUN chmod +x /usr/local/bin/ops
 
 # Set jar file URL
 ENV JAR_URL https://s3.amazonaws.com/Minecraft.Download/versions/${MC_VERSION}/minecraft_server.${MC_VERSION}.jar
