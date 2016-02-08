@@ -23,7 +23,7 @@ ENV JAR_URL https://s3.amazonaws.com/Minecraft.Download/versions/${MC_VERSION}/m
 # Install dependencies and fetch Minecraft server jar file
 RUN apk add --update ca-certificates openjdk8-jre-base wget \
     && wget -O /opt/minecraft/minecraft_server.jar ${JAR_URL} \
-    && apk del ca-certificates wget && rm -rf /var/cache/apk/*
+    && apk del --purge wget && rm -rf /var/cache/apk/*
 
 # Define volumes
 VOLUME /etc/minecraft
