@@ -1,20 +1,20 @@
 docker-minecraft
 ================
 
-Docker image for Minecraft server.
+Docker image for [Minecraft](https://minecraft.net/) server.
 
 [![](https://badge.imagelayers.io/phlak/minecraft:latest.svg)](https://imagelayers.io/?images=phlak/minecraft:latest 'Get your own badge on imagelayers.io')
 
 
 ### Running the container
 
-First create a data-only container to hold the persistent world and config data:
+First create a named data volume to hold the persistent world and config data:
 
-    docker create --name minecraft-data phlak/minecraft echo "Data-only container for Minecraft server"
+    docker volume create --name minecraft-data
 
 Then run the Minecraft server:
 
-    docker run -d -p 25565:25565 --volumes-from minecraft-data --name minecraft-server phlak/minecraft
+    docker run -d -p 25565:25565 -v minecraft-data:/etc/minecraft --name minecraft-server phlak/minecraft
 
 
 ##### Adding OPs
@@ -47,7 +47,7 @@ on memory requirements.
 
 Once you have a running container, you can edit the Minecraft server config with:
 
-    docker exec -it minecraft-server vi /srv/minecraft/server.properties
+    docker exec -it minecraft-server vi /etc/minecraft/server.properties
 
 After saving changes, restart your container with `docker restart minecraft-server`
 
@@ -62,7 +62,7 @@ Remove your running server container:
 
     docker rm -f minecraft-server
 
-And run a new one with the same command as above.
+And run a new one with the same command/arguments as before.
 
 
 -----
