@@ -3,7 +3,7 @@ docker-minecraft
 
 Docker image for [Minecraft](https://minecraft.net/) server.
 
-[![](https://badge.imagelayers.io/phlak/minecraft:latest.svg)](https://imagelayers.io/?images=phlak/minecraft:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/phlak/minecraft.svg)](http://microbadger.com/#/images/phlak/minecraft "Get your own image badge on microbadger.com")
 
 
 ### Running the container
