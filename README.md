@@ -5,8 +5,8 @@ Docker image for [Minecraft](https://minecraft.net/) server.
 
 [![](https://images.microbadger.com/badges/image/phlak/minecraft.svg)](http://microbadger.com/#/images/phlak/minecraft "Get your own image badge on microbadger.com")
 
-
-### Running the container
+Running the Container
+---------------------
 
 First create a named data volume to hold the persistent world and config data:
 
@@ -16,8 +16,28 @@ Then run the Minecraft server:
 
     docker run -d -p 25565:25565 -v minecraft-data:/etc/minecraft --name minecraft-server phlak/minecraft
 
+#### Optional 'docker run' Arguments
 
-##### Adding OPs
+`-e _JAVA_OPTIONS='-Xms256M -Xmx2048M'` - Set JVM arguments for minimum/maximum memory consumption
+                                          (default: '-Xms256M -Xmx2048M')
+
+`--restart always` - Always restart the container regardless of the exit status. See the Docker
+                     [restart policies](https://goo.gl/OI87rA) for additional details.
+
+**NOTE:** See the [Minecraft Wiki](http://minecraft.gamepedia.com/Server/Requirements) for more info
+on memory requirements.
+
+Editing the Server Config
+-------------------------
+
+Once you have a running container, you can edit the Minecraft server config with:
+
+    docker exec -it minecraft-server vi /etc/minecraft/server.properties
+
+After saving changes, restart your container with `docker restart minecraft-server`
+
+Adding OPs
+----------
 
 Once you have a running server container you can add OPs by running:
 
@@ -30,29 +50,8 @@ Here's an example granting OP to three players with name's `Marty`, `Jennifer` a
 
     docker exec minecraft-server ops Marty Jennifer "Doc Brown"
 
-
-##### Optional 'docker run' Arguments
-
-`-e _JAVA_OPTIONS='-Xms256M -Xmx2048M'` - Set JVM arguments for minimum/maximum memory consumption
-                                          (default: '-Xms256M -Xmx2048M')
-
-`--restart always` - Always restart the container regardless of the exit status. See the Docker
-                     [restart policies](https://goo.gl/OI87rA) for additional details.
-
-**NOTE:** See the [Minecraft Wiki](http://minecraft.gamepedia.com/Server/Requirements) for more info
-on memory requirements.
-
-
-##### Editing the server config
-
-Once you have a running container, you can edit the Minecraft server config with:
-
-    docker exec -it minecraft-server vi /etc/minecraft/server.properties
-
-After saving changes, restart your container with `docker restart minecraft-server`
-
-
-### Upgrading the server
+Upgrading the Server
+--------------------
 
 First pull down the latest image:
 
