@@ -21,8 +21,9 @@ Then run the Minecraft server:
 `-e _JAVA_OPTIONS='-Xms256M -Xmx2048M'` - Set JVM arguments for minimum/maximum memory consumption
                                           (default: '-Xms256M -Xmx2048M')
 
-`--restart always` - Always restart the container regardless of the exit status. See the Docker
-                     [restart policies](https://goo.gl/OI87rA) for additional details.
+`-e TZ=America/Phoenix` - Set the timezone for your server. You can find your timezone in this
+                          [list of timezones](https://goo.gl/uy1J6q). Use the (case sensitive)
+                          value from the `TZ` column. If left unset, timezone will be UTC.
 
 **NOTE:** See the [Minecraft Wiki](http://minecraft.gamepedia.com/Server/Requirements) for more info
 on memory requirements.
