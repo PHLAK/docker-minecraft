@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Minecraft version
-ENV MC_VERSION 1.11
+ENV MC_VERSION 1.11.1
 
 # Set default JVM options
 ENV _JAVA_OPTIONS '-Xms256M -Xmx2048M'
