@@ -5,7 +5,7 @@ MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 ENV MC_VERSION 1.11.1
 
 # Set default JVM options
-ENV _JAVA_OPTIONS '-Xms256M -Xmx2048M'
+ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'
 
 # Create Minecraft directories
 RUN mkdir -pv /opt/minecraft /etc/minecraft
