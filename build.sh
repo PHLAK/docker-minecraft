@@ -7,7 +7,7 @@ set -o errexit
 SCRIPT_DIR="$(dirname $(readlink -f ${0}))"
 
 IMAGE_NAME="phlak/minecraft"
-TAG="$(grep 'ENV MC_VERSION' Dockerfile | awk '{print $3}')"
+TAG="$(grep 'ARG MC_VERSION' Dockerfile | awk -F = '{print $2}')"
 
 ## SCRIPT USAGE
 ########################################

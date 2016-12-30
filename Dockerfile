@@ -2,7 +2,7 @@ FROM alpine:3.5
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Minecraft version
-ENV MC_VERSION 1.11.2
+ARG MC_VERSION=1.11.2
 
 # Set default JVM options
 ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'
@@ -21,7 +21,7 @@ COPY files/ops /usr/local/bin/ops
 RUN chmod +x /usr/local/bin/ops
 
 # Set jar file URL
-ENV JAR_URL https://s3.amazonaws.com/Minecraft.Download/versions/${MC_VERSION}/minecraft_server.${MC_VERSION}.jar
+ARG JAR_URL=https://s3.amazonaws.com/Minecraft.Download/versions/${MC_VERSION}/minecraft_server.${MC_VERSION}.jar
 
 # Install dependencies and fetch Minecraft server jar file
 RUN apk add --update ca-certificates openjdk8-jre-base tzdata wget \
