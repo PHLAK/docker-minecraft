@@ -1,6 +1,10 @@
 docker-minecraft
 ================
 
+![Docker Minecraft](docker-minecraft.jpg)
+
+---
+
 Docker image for [Minecraft](https://minecraft.net/) server.
 
 [![](https://images.microbadger.com/badges/image/phlak/minecraft.svg)](http://microbadger.com/#/images/phlak/minecraft "Get your own image badge on microbadger.com")
