@@ -2,8 +2,8 @@ FROM alpine:3.8
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Minecraft version
-ARG MC_VERSION=1.13
-ARG MC_JAR_SHA1=d0caafb8438ebd206f99930cfaecfa6c9a13dca0
+ARG MC_VERSION=1.13.1
+ARG MC_JAR_SHA1=fe123682e9cb30031eae351764f653500b7396c9
 
 # Set jar file URL
 ARG JAR_URL=https://launcher.mojang.com/mc/game/${MC_VERSION}/server/${MC_JAR_SHA1}/server.jar
