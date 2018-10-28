@@ -2,11 +2,11 @@ FROM alpine:3.8
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Minecraft version
-ARG MC_VERSION=1.13.1
-ARG MC_JAR_SHA1=fe123682e9cb30031eae351764f653500b7396c9
+ARG MC_VERSION=1.13.2
+ARG MC_JAR_SHA1=3737db93722a9e39eeada7c27e7aca28b144ffa7
 
 # Set jar file URL
-ARG JAR_URL=https://launcher.mojang.com/mc/game/${MC_VERSION}/server/${MC_JAR_SHA1}/server.jar
+ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
 
 # Set default JVM options
 ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'
