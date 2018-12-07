@@ -18,7 +18,7 @@ First create a named data volume to hold the persistent world and config data:
 
 Then run the Minecraft server:
 
-    docker run -d -p 25565:25565 -v minecraft-data:/etc/minecraft --name minecraft-server phlak/minecraft
+    docker run -it -d -p 25565:25565 -v minecraft-data:/etc/minecraft --name minecraft-server phlak/minecraft
 
 #### Optional 'docker run' Arguments
 
@@ -59,6 +59,27 @@ privileges separated by a space. If a players name contains spaces wrap it in qu
 Here's an example granting OP to three players with name's `Marty`, `Jennifer` and  `Doc Brown`:
 
     docker exec minecraft-server ops Marty Jennifer "Doc Brown"
+
+Running Server Commands
+-----------------------
+
+You can run [commands](https://minecraft.gamepedia.com/Commands) on the server
+(e.g. `kick`, `ban`, `say`, etc.) by attaching to the running container and
+running the commands. Attach to the server by running:
+
+    docker attach minecraft-server
+
+Once attached you can run your commands like normal.
+
+    say Hello world!
+    [10:11:56] [Server thread/INFO]: [Server] Hello world!
+    list
+    [10:12:08] [Server thread/INFO]: There are 3 of a max 10 players online: Marty, Jennifer, Doc Brown
+    seed
+    [10:12:19] [Server thread/INFO]: Seed: [-5234790158571010769]
+
+**NOTE:** In order to detach from the container and leave it running use the
+`Ctrl + P` then `Ctrl + Q` key sequence.
 
 Upgrading the Server
 --------------------
