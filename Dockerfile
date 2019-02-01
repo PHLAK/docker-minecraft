@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Minecraft version
