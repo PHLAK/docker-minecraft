@@ -25,7 +25,7 @@ COPY files/ops /usr/local/bin/ops
 RUN chmod +x /usr/local/bin/ops
 
 # Install dependencies, fetch Minecraft server jar file and chown files
-RUN apk add --update ca-certificates openjdk8-jre-base tzdata wget \
+RUN apk add --update ca-certificates nss openjdk8-jre-base tzdata wget \
     && wget -O /opt/minecraft/minecraft_server.jar ${JAR_URL} \
     && apk del --purge wget && rm -rf /var/cache/apk/* \
     && chown -R minecraft:minecraft /etc/minecraft /opt/minecraft
