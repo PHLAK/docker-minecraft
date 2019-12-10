@@ -7,15 +7,18 @@ docker-minecraft
 
 <p align="center">
   <a href="http://microbadger.com/#/images/phlak/minecraft" alt="Microbadger"><img src="https://images.microbadger.com/badges/image/phlak/minecraft.svg"></a>
-  <a href="https://join.slack.com/t/phlaknet/shared_invite/enQtNzk0ODkwMDA2MDg0LWI4NDAyZGRlMWEyMWNhZmJmZjgzM2Y2YTdhNmZlYzc3OGNjZWU5MDNkMTcwMWQ5OGI5ODFmMjI5OWVkZTliN2M"><img src="https://img.shields.io/badge/Join_our-Slack-611f69.svg" alt="Join our"></a>
-  <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-0366d6.svg" alt="Become a Sponsor"></a>
+  <a href="https://ln.phlak.net/join-slack"><img src="https://img.shields.io/badge/Join_our-Slack-611f69.svg" alt="Join our Slack"></a>
+  <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg" alt="Become a Sponsor"></a>
   <a href="https://patreon.com/PHLAK"><img src="https://img.shields.io/badge/Become_a-Patron-e7513b.svg" alt="Become a Patron"></a>
   <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg" alt="One-time Donation"></a>
+  <a href="https://www.ChrisKankiewicz.com"><img src="https://img.shields.io/badge/Created_by-Chris%20Kankiewicz-319795.svg" alt="Author"></a>
 </p>
 
 <p align="center">
     Docker image for <a href="https://minecraft.net/">Minecraft</a> server.
 </p>
+
+---
 
 Running the Container
 ---------------------
@@ -48,7 +51,7 @@ on memory requirements.
 Editing the Server Config
 -------------------------
 
-Once you have a running container, you can edit the Minecraft server config with:
+Once you have a running container, you can edit the Minecraft [server config](https://minecraft.gamepedia.com/Server.properties) with:
 
     docker exec -it minecraft-server vi /etc/minecraft/server.properties
 
@@ -105,7 +108,7 @@ And run a new one with the same command/arguments as before.
 Troubleshooting
 ---------------
 
-For general help and support join our [Spectrum community](https://spectrum.chat/phlaknet).
+For general help and support join our [Slack Workspace](https://ln.phlak.net/join-slack).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/docker-minecraft/issues).
 
