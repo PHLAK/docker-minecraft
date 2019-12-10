@@ -1,9 +1,9 @@
-FROM alpine:3.9
-MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
+FROM alpine:3.10
+LABEL maintainer='Chris Kankiewicz <Chris@ChrisKankiewicz.com>'
 
 # Minecraft version
-ARG MC_VERSION=1.14
-ARG MC_JAR_SHA1=f1a0073671057f01aa843443fef34330281333ce
+ARG MC_VERSION=1.14.4
+ARG MC_JAR_SHA1=3dc3d84a581f14691199cf6831b71ed1296a9fdf
 
 # Set jar file URL
 ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
@@ -25,7 +25,7 @@ COPY files/ops /usr/local/bin/ops
 RUN chmod +x /usr/local/bin/ops
 
 # Install dependencies, fetch Minecraft server jar file and chown files
-RUN apk add --update ca-certificates openjdk8-jre-base tzdata wget \
+RUN apk add --update ca-certificates nss openjdk8-jre-base tzdata wget \
     && wget -O /opt/minecraft/minecraft_server.jar ${JAR_URL} \
     && apk del --purge wget && rm -rf /var/cache/apk/* \
     && chown -R minecraft:minecraft /etc/minecraft /opt/minecraft
