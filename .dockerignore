@@ -1,5 +1,6 @@
 .git
-build.sh
+.editorconfig
 docker-minecraft.jpg
 LICENSE
+Makefile
 README.md
