@@ -2,7 +2,7 @@ docker-minecraft
 ================
 
 <p align="center">
-    <img src="docker-minecraft.jpg" alt="Docker Minecraft" width="500">
+    <img src="docker-minecraft.png" alt="Docker Minecraft" width="500">
 <p>
 
 <p align="center">
