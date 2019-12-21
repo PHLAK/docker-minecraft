@@ -2,15 +2,12 @@
 set -o errexit
 
 OPS_FILE="/etc/minecraft/ops.txt"
-
 [ ! -e "${OPS_FILE}" ] && touch ${OPS_FILE}
 
 for OP in "$@"; do
-
     if grep -qx "${OP}" ${OPS_FILE}; then
         echo "NOTICE:  '${OP}' already present in OPs file"; continue
     fi
 
     echo "${OP}" >> ${OPS_FILE} && echo "SUCCESS: '${OP}' added to OPs file"
-
 done
