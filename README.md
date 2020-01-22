@@ -3,7 +3,7 @@ docker-minecraft
 
 <p align="center">
     <img src="docker-minecraft.png" alt="Docker Minecraft" width="500">
-<p>
+</p>
 
 <p align="center">
   <a href="http://microbadger.com/#/images/phlak/minecraft" alt="Microbadger"><img src="https://images.microbadger.com/badges/image/phlak/minecraft.svg"></a>
