@@ -7,11 +7,9 @@ docker-minecraft
 
 <p align="center">
   <a href="http://microbadger.com/#/images/phlak/minecraft" alt="Microbadger"><img src="https://images.microbadger.com/badges/image/phlak/minecraft.svg"></a>
-  <a href="https://ln.phlak.net/join-slack"><img src="https://img.shields.io/badge/Join_our-Slack-611f69.svg" alt="Join our Slack"></a>
+  <a href="https://spectrum.chat/phlaknet"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg" alt="Join our Community"></a>
   <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg" alt="Become a Sponsor"></a>
-  <a href="https://patreon.com/PHLAK"><img src="https://img.shields.io/badge/Become_a-Patron-e7513b.svg" alt="Become a Patron"></a>
   <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg" alt="One-time Donation"></a>
-  <a href="https://www.ChrisKankiewicz.com"><img src="https://img.shields.io/badge/Created_by-Chris%20Kankiewicz-319795.svg" alt="Author"></a>
 </p>
 
 <p align="center">
@@ -33,17 +31,20 @@ Then run the Minecraft server:
 
 #### Optional 'docker run' Arguments
 
-`-e _JAVA_OPTIONS='-Xms256M -Xmx2048M'` - Set JVM arguments for minimum/maximum memory consumption
-                                          (default: '-Xms256M -Xmx2048M')
+<dl>
+    <dt><code>-e _JAVA_OPTIONS='-Xms256M -Xmx2048M'</code></dt>
+    <dd>Set JVM arguments for minimum/maximum memory consumption (default: '-Xms256M -Xmx2048M')</dd>
+</dl>
 
-`-e TZ=America/Phoenix` - Set the timezone for your server. You can find your timezone in this
-                          [list of timezones](https://goo.gl/uy1J6q). Use the (case sensitive)
-                          value from the `TZ` column. If left unset, timezone will be UTC.
+<dl>
+    <dt><code>-e TZ=America/Phoenix</code></dt>
+    <dd>Set the timezone for your server. You can find your timezone in this <a href="https://goo.gl/uy1J6q">list of timezones</a>. Use the (case sensitive) value from the <code>TZ</code> column. If left unset, timezone will be UTC.</dd>
+</dl>
 
-`--restart unless-stopped` - Always restart the container regardless of the exit status, but do not
-                             start it on daemon startup if the container has been put to a stopped
-                             state before. See the Docker [restart policies](https://goo.gl/Y0dlDH)
-                             for additional details.
+<dl>
+    <dt><code>--restart unless-stopped</code></dt>
+    <dd>Always restart the container regardless of the exit status, but do not start it on daemon startup if the container has been put to a stopped state before. See the Docker <a href="https://goo.gl/Y0dlDH">restart policies</a> for additional details.</dd>
+</dl>
 
 **NOTE:** See the [Minecraft Wiki](http://minecraft.gamepedia.com/Server/Requirements) for more info
 on memory requirements.
@@ -108,7 +109,7 @@ And run a new one with the same command/arguments as before.
 Troubleshooting
 ---------------
 
-For general help and support join our [Slack Workspace](https://ln.phlak.net/join-slack).
+For general help and support join our [Spectrum Community](https://spectrum.chat/phlaknet) or reach out on [Twitter](https://twitter.com/PHLAK).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/docker-minecraft/issues).
 
