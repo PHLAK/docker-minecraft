@@ -2,8 +2,8 @@ FROM alpine:3.12.0
 LABEL maintainer='Chris Kankiewicz <Chris@ChrisKankiewicz.com>'
 
 # Minecraft version
-ARG MC_VERSION=1.16
-ARG MC_JAR_SHA1=a0d03225615ba897619220e256a266cb33a44b6b
+ARG MC_VERSION=1.16.1
+ARG MC_JAR_SHA1=a412fd69db1f81db3f511c1463fd304675244077
 
 # Set jar file URL
 ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
