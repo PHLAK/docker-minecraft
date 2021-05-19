@@ -13,7 +13,7 @@ docker-minecraft
     <a href="https://hub.docker.com/repository/docker/phlak/minecraft/tags"><img alt="Docker Image Version" src="https://img.shields.io/docker/v/phlak/minecraft?style=flat-square&sort=semver"></a>
     <a href="https://hub.docker.com/repository/docker/phlak/minecraft"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/phlak/minecraft?style=flat-square"></a>
     <a href="https://github.com/PHLAK/docker-minecraft/blob/master/LICENSE"><img src="https://img.shields.io/github/license/PHLAK/docker-minecraft?style=flat-square" alt="License"></a>
-    <a href="https://hub.docker.com/repository/docker/phlak/minecraft/builds"><img alt="Docker Build Status" src="https://img.shields.io/docker/build/phlak/minecraft?style=flat-square"></a>
+    <a href="https://hub.docker.com/r/phlak/minecraft/builds"><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/phlak/minecraft"></a>
 </p>
 
 <p align="center">
@@ -113,7 +113,7 @@ And run a new one with the same command/arguments as before.
 Troubleshooting
 ---------------
 
-For general help and support join our [Spectrum Community](https://spectrum.chat/phlaknet) or reach out on [Twitter](https://twitter.com/PHLAK).
+For general help and support join our [GitHub Discussions](https://github.com/PHLAK/docker-minecraft/discussions) or reach out on [Twitter](https://twitter.com/PHLAK).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/docker-minecraft/issues).
 
