@@ -5,9 +5,6 @@ LABEL maintainer='Chris Kankiewicz <Chris@ChrisKankiewicz.com>'
 ARG MC_VERSION=1.16.4
 ARG MC_JAR_SHA1=35139deedbd5182953cf1caa23835da59ca3d7cd
 
-# Set jar file URL
-ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
-
 # Set default JVM options
 ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'
 
@@ -25,6 +22,7 @@ COPY files/ops /usr/local/bin/ops
 RUN chmod +x /usr/local/bin/ops
 
 # Install dependencies, fetch Minecraft server jar file and chown files
+ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
 RUN apk add --update ca-certificates nss openjdk8-jre-base tzdata wget \
     && wget -O /opt/minecraft/minecraft_server.jar ${JAR_URL} \
     && apk del --purge wget && rm -rf /var/cache/apk/* \
