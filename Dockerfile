@@ -23,7 +23,7 @@ RUN chmod +x /usr/local/bin/ops
 
 # Install dependencies, fetch Minecraft server jar file and chown files
 ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
-RUN apk add --update ca-certificates nss openjdk8-jre-base tzdata wget \
+RUN apk add --update ca-certificates nss openjdk11-jre-headless tzdata wget \
     && wget -O /opt/minecraft/minecraft_server.jar ${JAR_URL} \
     && apk del --purge wget && rm -rf /var/cache/apk/* \
     && chown -R minecraft:minecraft /etc/minecraft /opt/minecraft
