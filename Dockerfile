@@ -2,8 +2,8 @@ FROM alpine:3.15.0
 LABEL maintainer='Chris Kankiewicz <Chris@ChrisKankiewicz.com>'
 
 # Minecraft version
-ARG MC_VERSION=1.17.1
-ARG MC_JAR_SHA1=a16d67e5807f57fc4e550299cf20226194497dc2
+ARG MC_VERSION=1.18
+ARG MC_JAR_SHA1=3cf24a8694aca6267883b17d934efacc5e44440d
 
 # Set default JVM options
 ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'
