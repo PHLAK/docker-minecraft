@@ -1,4 +1,4 @@
-FROM alpine:3.16.0
+FROM alpine:3.17.0
 LABEL maintainer='Chris Kankiewicz <Chris@ChrisKankiewicz.com>'
 
 # Minecraft version
