@@ -25,7 +25,7 @@ jobs:
 
       - name: Extract Metadata
         id: extract-metadata
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.DOCKER_HUB_USER }}/minecraft
           tags: |
