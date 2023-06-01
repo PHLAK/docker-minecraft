@@ -1,8 +1,18 @@
 version: 2
+
 updates:
-- package-ecosystem: docker
-  directory: "/"
-  schedule:
-    interval: monthly
-    timezone: US/Arizona
-  open-pull-requests-limit: 10
+  - package-ecosystem: docker
+    directory: "/"
+    labels:
+      - "Dependencies"
+    schedule:
+      interval: monthly
+      timezone: US/Arizona
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    labels:
+      - "Dependencies"
+    schedule:
+      interval: monthly
+      timezone: US/Arizona
