@@ -6,7 +6,7 @@ ARG MC_VERSION=1.21.8
 ARG MC_JAR_SHA1=6bce4ef400e4efaa63a13d5e6f6b500be969ef81
 
 # Set default JVM options
-ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'
+ENV _JAVA_OPTIONS="-Xms256M -Xmx1024M"
 
 # Create Minecraft directories
 RUN mkdir -pv /opt/minecraft /etc/minecraft
