@@ -1,5 +1,5 @@
 FROM alpine:3.23.3
-LABEL maintainer='Chris Kankiewicz <Chris@ChrisKankiewicz.com>'
+LABEL maintainer='Chris Kankiewicz <Chris@Kankiewicz.com>'
 
 # Minecraft version
 ARG MC_VERSION=26.1.2

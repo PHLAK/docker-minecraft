@@ -113,7 +113,7 @@ And run a new one with the same command/arguments as before.
 Troubleshooting
 ---------------
 
-For general help and support join our [GitHub Discussions](https://github.com/PHLAK/docker-minecraft/discussions) or reach out on [Twitter](https://twitter.com/PHLAK).
+For general help and support join our [GitHub Discussions](https://github.com/PHLAK/docker-minecraft/discussions) or reach out on [Bluesky](https://bsky.app/profile/phlak.dev).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/docker-minecraft/issues).
 
