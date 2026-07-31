@@ -3,12 +3,21 @@ version: 2
 updates:
   - package-ecosystem: docker
     directory: /
-    labels: [Dependencies]
+    labels: [Dependencies, Docker]
     schedule:
       interval: monthly
+    cooldown:
+      default-days: 2
+    assignees: [PHLAK]
 
   - package-ecosystem: github-actions
     directory: /
-    labels: [Dependencies]
+    groups:
+      GitHub Actions:
+        patterns: ['*']
+    labels: [Dependencies, GitHub Actions]
     schedule:
       interval: monthly
+    cooldown:
+      default-days: 2
+    assignees: [PHLAK]
